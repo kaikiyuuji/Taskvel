@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreListRequest;
+use App\Http\Requests\UpdateListRequest;
 use App\Models\TaskList;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class ListController extends Controller
@@ -35,9 +35,26 @@ class ListController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreListRequest $request): RedirectResponse
     {
-        //
+        try {
+            $validated = $request->validated();
+
+            TaskList::create([
+                ...$validated,
+                'user_id' => auth()->id(),
+            ]);
+
+            return redirect()
+                ->route('lists.index')
+                ->with('success', 'Lista criada com sucesso!');
+
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Erro ao criar a lista. Tente novamente.');
+        }
     }
 
     /**
@@ -59,16 +76,31 @@ class ListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateListRequest $request, TaskList $list): RedirectResponse
     {
-        //
+        try {
+            $validated = $request->validated();
+
+            $list->update($validated);
+
+            return redirect()
+                ->route('lists.index')
+                ->with('success', 'Lista editada com sucesso!');
+
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Erro ao editar a lista. Tente novamente.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(TaskList $list)
     {
-        //
+        $list->delete();
+        return redirect()->route('lists.index')->with('success', 'Lista deletada com sucesso!');;
     }
 }
