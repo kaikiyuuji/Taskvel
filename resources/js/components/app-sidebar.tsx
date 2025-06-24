@@ -15,12 +15,12 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Listas de Tarefas',
-        href: '/listas',
+        href: '/lists',
         icon: ClipboardList,
     },
     {
         title: 'Tarefas',
-        href: '/tarefas',
+        href: '/tasks',
         icon: ListTodo,
     },
 ];
