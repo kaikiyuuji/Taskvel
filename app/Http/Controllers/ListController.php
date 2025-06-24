@@ -6,6 +6,7 @@ use App\Http\Requests\StoreListRequest;
 use App\Http\Requests\UpdateListRequest;
 use App\Models\TaskList;
 use Inertia\Inertia;
+use Illuminate\Http\RedirectResponse;
 
 class ListController extends Controller
 {

@@ -28,9 +28,10 @@ class StoreListRequest extends FormRequest
                 'max:255',
                 'min:3'
             ],
-            'description' =>
+            'description' => [
                 'nullable',
                 'string'
+            ]
         ];
     }
 
