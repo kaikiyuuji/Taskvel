@@ -40,23 +40,23 @@ stats = {
                 <div className="flex justify-between items-center">
                     <div>
                         <h1 className="text-3xl font-bold tracking-tight">
-                            Dashboard
+                            ⚡ Taskvel
                         </h1>
                         <p className="text-muted-foreground mt-1">
-                            Bem-vindo de volta! Aqui está sua visão geral
+                            Visão geral das suas tarefas e listas de tarefas.
                         </p>
                     </div>
 
                     <div className="flex gap-2">
                         <Link href={route('lists.index')}>
-                            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg">
+                            <Button className="bg-primary hover:bg-primary/90 shadow-lg">
                                 <List className="h-4 w-4 mr-2" />
                                 Ver Listas
                             </Button>
                         </Link>
 
                         <Link href={route('tasks.index')}>
-                            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg">
+                            <Button className="bg-primary hover:bg-primary/90 shadow-lg">
                                 <CheckCircle className="h-4 w-4 mr-2" />
                                 Ver Tarefas
                             </Button>
