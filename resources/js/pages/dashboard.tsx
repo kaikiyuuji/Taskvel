@@ -66,73 +66,85 @@ stats = {
 
                 {/* Stats Cards */}
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                    <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-blue-500/20">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-blue-500">
-                                Total de Listas
-                            </CardTitle>
-                            <List className="h-4 w-4 text-blue-500" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-blue-500">
-                                {stats.totalLists}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Suas listas de tarefas
-                            </p>
-                        </CardContent>
-                    </Card>
+                    {/* Card Total de Listas - Clicável */}
+                    <Link href={route('lists.index')}>
+                        <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-blue-500/20 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 hover:border-blue-500/40 group">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium text-blue-500 group-hover:text-blue-600 transition-colors">
+                                    Total de Listas
+                                </CardTitle>
+                                <List className="h-4 w-4 text-blue-500 group-hover:text-blue-600 group-hover:scale-110 transition-all" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold text-blue-500 group-hover:text-blue-600 transition-colors">
+                                    {stats.totalLists}
+                                </div>
+                                <p className="text-xs text-muted-foreground group-hover:text-blue-400 transition-colors">
+                                    Suas listas de tarefas
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </Link>
 
-                    <Card className="bg-gradient-to-br from-green-500/10 to-green-600/10 border-green-500/20">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-green-500">
-                                Total de Tarefas
-                            </CardTitle>
-                            <CheckCircle className="h-4 w-4 text-green-500" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-green-500">
-                                {stats.totalTasks}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Todas as suas tarefas
-                            </p>
-                        </CardContent>
-                    </Card>
+                    {/* Card Total de Tarefas - Clicável */}
+                    <Link href={route('tasks.index')}>
+                        <Card className="bg-gradient-to-br from-green-500/10 to-green-600/10 border-green-500/20 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-green-500/20 hover:to-green-600/20 hover:border-green-500/40 group">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium text-green-500 group-hover:text-green-600 transition-colors">
+                                    Total de Tarefas
+                                </CardTitle>
+                                <CheckCircle className="h-4 w-4 text-green-500 group-hover:text-green-600 group-hover:scale-110 transition-all" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold text-green-500 group-hover:text-green-600 transition-colors">
+                                    {stats.totalTasks}
+                                </div>
+                                <p className="text-xs text-muted-foreground group-hover:text-green-400 transition-colors">
+                                    Todas as suas tarefas
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </Link>
 
-                    <Card className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 border-yellow-500/20">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-yellow-500">
-                                Tarefas Pendentes
-                            </CardTitle>
-                            <Clock className="h-4 w-4 text-yellow-500" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-yellow-500">
-                                {stats.pendingTasks}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Tarefas a serem concluídas
-                            </p>
-                        </CardContent>
-                    </Card>
+                    {/* Card Tarefas Pendentes - Clicável com filtro */}
+                    <Link href={route('tasks.index', { filter: 'pending' })}>
+                        <Card className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 border-yellow-500/20 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-yellow-500/20 hover:to-yellow-600/20 hover:border-yellow-500/40 group">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium text-yellow-500 group-hover:text-yellow-600 transition-colors">
+                                    Tarefas Pendentes
+                                </CardTitle>
+                                <Clock className="h-4 w-4 text-yellow-500 group-hover:text-yellow-600 group-hover:scale-110 transition-all" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold text-yellow-500 group-hover:text-yellow-600 transition-colors">
+                                    {stats.pendingTasks}
+                                </div>
+                                <p className="text-xs text-muted-foreground group-hover:text-yellow-400 transition-colors">
+                                    Tarefas a serem concluídas
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </Link>
 
-                    <Card className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border-purple-500/20">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-purple-500">
-                                Tarefas Concluídas
-                            </CardTitle>
-                            <AlertCircle className="h-4 w-4 text-purple-500" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-purple-500">
-                                {stats.completedTasks}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Tarefas finalizadas
-                            </p>
-                        </CardContent>
-                    </Card>
+                    {/* Card Tarefas Concluídas - Clicável com filtro */}
+                    <Link href={route('tasks.index', { filter: 'completed' })}>
+                        <Card className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border-purple-500/20 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-purple-500/20 hover:to-purple-600/20 hover:border-purple-500/40 group">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium text-purple-500 group-hover:text-purple-600 transition-colors">
+                                    Tarefas Concluídas
+                                </CardTitle>
+                                <AlertCircle className="h-4 w-4 text-purple-500 group-hover:text-purple-600 group-hover:scale-110 transition-all" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold text-purple-500 group-hover:text-purple-600 transition-colors">
+                                    {stats.completedTasks}
+                                </div>
+                                <p className="text-xs text-muted-foreground group-hover:text-purple-400 transition-colors">
+                                    Tarefas finalizadas
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </Link>
                 </div>
 
                 {/* Action Cards */}
@@ -146,14 +158,14 @@ stats = {
                         <CardContent>
                             <div className="grid gap-4">
                                 <Link href={route('lists.index')}>
-                                    <Button variant="outline" className="w-full justify-start">
+                                    <Button variant="outline" className="w-full justify-start hover:bg-primary/10 hover:border-primary/30 transition-all">
                                         <List className="mr-2 h-4 w-4" />
                                         Ver Todas as Listas
                                     </Button>
                                 </Link>
 
                                 <Link href={route('tasks.index')}>
-                                    <Button variant="outline" className="w-full justify-start">
+                                    <Button variant="outline" className="w-full justify-start hover:bg-primary/10 hover:border-primary/30 transition-all">
                                         <CheckCircle className="mr-2 h-4 w-4" />
                                         Ver Todas as Tarefas
                                     </Button>
