@@ -101,7 +101,14 @@ class ListController extends Controller
      */
     public function destroy(TaskList $list)
     {
+        if ($list->user_id !== auth()->id()) {
+            abort(403, 'Você não tem permissão para excluir esta lista.');
+        }
+    
         $list->delete();
-        return redirect()->route('lists.index')->with('success', 'Lista deletada com sucesso!');;
+    
+        return redirect()
+            ->route('lists.index')
+            ->with('success', 'Lista deletada com sucesso!');
     }
 }

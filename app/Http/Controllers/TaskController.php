@@ -128,7 +128,14 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        if ($task->list->user_id !== auth()->id()) {
+            abort(403, 'Você não tem permissão para excluir esta tarefa.');
+        }
+
         $task->delete();
-        return redirect()->route('tasks.index')->with('success', 'Tarefa deletada com sucesso!');;
+
+        return redirect()
+            ->route('tasks.index')
+            ->with('success', 'Tarefa deletada com sucesso!');
     }
 }
