@@ -33,7 +33,7 @@ const footerNavItems: NavItem[] = [
     },
     {
         title: 'Documentação',
-        href: 'https://laravel.com/docs/starter-kits#react',
+        href: 'https://github.com/kaikiyuuji/Taskvel/blob/main/README.md',
         icon: BookOpen,
     },
 ];
