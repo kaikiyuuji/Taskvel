@@ -1,4 +1,6 @@
-# Taskvel
+<p align="center">
+  <img src="public/banner/taskvel_banner.jpg" alt="Taskvel Banner" width="600" />
+</p>
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="PHP" style="margin-right: 10px;" />
