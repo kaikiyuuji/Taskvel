@@ -3,29 +3,28 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, Users, Clock, Zap, ArrowRight, Star, Target, Calendar } from 'lucide-react';
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;
 
     const features = [
         {
-            icon: <Target className="h-6 w-6" />,
+            icon: "🎯",
             title: "Organização Inteligente",
             description: "Organize suas tarefas por listas personalizadas e mantenha tudo sob controle."
         },
         {
-            icon: <Clock className="h-6 w-6" />,
+            icon: "⏰",
             title: "Gestão de Tempo",
             description: "Acompanhe prazos e prioridades para nunca mais perder um deadline importante."
         },
         {
-            icon: <Users className="h-6 w-6" />,
+            icon: "👥",
             title: "Colaboração",
             description: "Trabalhe em equipe de forma eficiente com ferramentas de colaboração integradas."
         },
         {
-            icon: <Zap className="h-6 w-6" />,
+            icon: "⚡",
             title: "Produtividade",
             description: "Aumente sua produtividade com recursos avançados de automação e lembretes."
         }
@@ -67,7 +66,7 @@ export default function Welcome() {
                         <nav className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
                                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                                    <CheckCircle className="h-5 w-5 text-primary-foreground" />
+                                    <span className="text-primary-foreground text-lg">✓</span>
                                 </div>
                                 <span className="text-xl font-bold text-foreground">Taskvel</span>
                             </div>
@@ -77,7 +76,7 @@ export default function Welcome() {
                                     <Button asChild>
                                         <Link href={route('dashboard')}>
                                             Ir para Dashboard
-                                            <ArrowRight className="ml-2 h-4 w-4" />
+                                            <span className="ml-2">→</span>
                                         </Link>
                                     </Button>
                                 ) : (
@@ -118,7 +117,7 @@ export default function Welcome() {
                                 <Button size="lg" asChild className="text-lg px-8 py-6">
                                     <Link href={route('dashboard')}>
                                         Acessar Dashboard
-                                        <ArrowRight className="ml-2 h-5 w-5" />
+                                        <span className="ml-2">→</span>
                                     </Link>
                                 </Button>
                             ) : (
@@ -126,7 +125,7 @@ export default function Welcome() {
                                     <Button size="lg" asChild className="text-lg px-8 py-6">
                                         <Link href={route('register')}>
                                             Começar Grátis
-                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                            <span className="ml-2">→</span>
                                         </Link>
                                     </Button>
                                     <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6">
@@ -156,10 +155,8 @@ export default function Welcome() {
                             {features.map((feature, index) => (
                                 <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                                     <CardHeader>
-                                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                                            <div className="text-primary">
-                                                {feature.icon}
-                                            </div>
+                                        <div className="text-4xl mb-4">
+                                            {feature.icon}
                                         </div>
                                         <CardTitle className="text-xl">{feature.title}</CardTitle>
                                     </CardHeader>
@@ -212,7 +209,7 @@ export default function Welcome() {
                                     <CardHeader>
                                         <div className="flex items-center space-x-1 mb-2">
                                             {[...Array(testimonial.rating)].map((_, i) => (
-                                                <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                                                <span key={i} className="text-primary">⭐</span>
                                             ))}
                                         </div>
                                         <CardDescription className="text-base italic">
@@ -247,7 +244,7 @@ export default function Welcome() {
                                     <Button size="lg" asChild className="text-lg px-8 py-6">
                                         <Link href={route('register')}>
                                             Criar Conta Grátis
-                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                            <span className="ml-2">→</span>
                                         </Link>
                                     </Button>
                                     <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6">
@@ -267,7 +264,7 @@ export default function Welcome() {
                         <div className="flex flex-col md:flex-row justify-between items-center">
                             <div className="flex items-center space-x-2 mb-4 md:mb-0">
                                 <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
-                                    <CheckCircle className="h-4 w-4 text-primary-foreground" />
+                                    <span className="text-primary-foreground text-sm">✓</span>
                                 </div>
                                 <span className="text-lg font-semibold text-foreground">Taskvel</span>
                             </div>
