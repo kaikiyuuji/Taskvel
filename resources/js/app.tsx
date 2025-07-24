@@ -21,4 +21,13 @@ createInertiaApp({
 });
 
 // This will set light / dark mode on load...
-initializeTheme();
+const appEl = document.querySelector('#app') as HTMLElement;
+if (appEl?.dataset.page) {
+    const page = JSON.parse(appEl.dataset.page);
+
+    if (page.component === 'welcome') {
+        document.documentElement.classList.remove('dark');
+    } else {
+        initializeTheme();
+    }
+}
