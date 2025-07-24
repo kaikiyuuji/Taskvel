@@ -357,7 +357,7 @@ export default function TaskvelLanding() {
                 >
                   <Button
                     size={isMobile ? "default" : "lg"}
-                    onClick={() => window.open("http://127.0.0.1:8000/dashboard", "_blank")}
+                    onClick={() => (window.location.href = "/login")}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 md:px-10 py-3 md:py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-base md:text-lg font-semibold group w-full sm:w-auto min-h-[48px]"
                   >
                     <Play className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 group-hover:scale-110 transition-transform" />
